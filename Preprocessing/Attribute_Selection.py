@@ -7,7 +7,7 @@ from sklearn import  linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
+import seaborn as sb
 pd.options.display.max_rows = 1500
 pd.options.display.max_columns = 90
 
@@ -112,5 +112,16 @@ def correlation_of_numerical_features ():
     # we observed that all these correlation tests performed above using
     # various methods give almost the same correlation results
 
+def plots():
+    # Distribution plot
+    df = pd.read_csv('D:\House Price Prediction\Datasets/numerical_data.csv', na_filter=False)
+    sb.distplot(df['SalePrice'], color='r')
+    plt.title('Sale Price Distribution', fontsize=16)
+    plt.xlabel('Sale Price', fontsize=14)
+    plt.ylabel('Frequency', fontsize=14)
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+    plt.savefig('D:\House Price Prediction\Plots/distplot_price.png')
+    plt.show()
 
-
+plots()
